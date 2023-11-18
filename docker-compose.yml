@@ -1,0 +1,64 @@
+version: '3.9'
+
+services:
+  feed:
+    container_name: feed
+    build:
+      context: .
+      dockerfile: ./docker/bdsmlr/Dockerfile
+    command: >
+      sh -c "python3 /src/agent.py"
+    env_file:
+      - ./docker/bdsmlr/.env
+    volumes:
+      - ./docker/bdsmlr/src/:/src/
+    depends_on:
+      - manager
+    restart: unless-stopped
+    networks:
+      main-network:
+        ipv4_address: 172.18.0.2
+    expose:
+      - 8888
+
+  manager:
+    container_name: manager
+    build: 
+      context: .
+      dockerfile: ./docker/manager/Dockerfile
+    entrypoint: /bin/sh /start.sh
+    env_file:
+      - ./docker/manager/.env
+    volumes:
+      - ./docker/manager/src:/src
+    depends_on:
+      - database
+    restart: unless-stopped
+    networks:
+      main-network:
+        ipv4_address: 172.18.0.4
+    expose:
+      - 6969
+
+  database:
+    container_name: database
+    image: postgres
+    env_file: ['docker/database/.env']
+    volumes:
+      - database_volume:/var/lib/postgresql/data
+    restart: unless-stopped
+    networks:
+      main-network:
+        ipv4_address: 172.18.0.5
+    expose:
+      - 5432
+
+volumes:
+  database_volume: {}
+
+networks:
+  main-network:
+    name: main-network
+    ipam:
+      config:
+        - subnet: 172.18.0.0/24

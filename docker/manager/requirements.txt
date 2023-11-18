@@ -1,0 +1,7 @@
+djangorestframework
+djangorestframework-simplejwt
+drf-yasg
+gunicorn
+psycopg2-binary
+requests
+Pillow

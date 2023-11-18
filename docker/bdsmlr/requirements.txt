@@ -1,0 +1,11 @@
+APScheduler
+certifi==2021.10.8
+charset-normalizer==2.0.7
+cssselect==1.1.0
+flask
+Flask-APScheduler
+idna==3.3
+lxml==4.6.3
+python-dotenv==0.21.1
+requests==2.26.0
+urllib3==1.26.7
