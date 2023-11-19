@@ -1,7 +1,4 @@
 <p align="center">
-    <img align="center" width="auto" height="auto" src="https://github.com/mad-hex0rzist-666/xxx_feed/assets/139306864/5ecb12e2-26c7-424a-b911-1fda706fe3b8">
-</p>
-<p align="center">
     <h3 align="center">BDSMLR Blogs Manager | NSFW 18 + </h3>
 </p>
 
@@ -78,9 +75,6 @@ For configuring the database check the `docker/database/.env.example` environmen
     - Check feed
     - Scrape blog
     - View images
-
-https://github.com/mad-hex0rzist-666/xxx_feed/assets/139306864/70a6735a-3afc-4a3b-aaa0-b4ba41cf532d
-
 
 ### TO DO:
 
